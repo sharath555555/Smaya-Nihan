@@ -6,13 +6,14 @@
     <title>Smaya & Nihanth's Colorful World!</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header class="site-header">
         <h1>Welcome to Our Amazing Adventure!</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#smaya-section">Smaya's Corner</a></li>
                 <li><a href="#nihanth-section">Nihanth's Zone</a></li>
                 <li><a href="#shared-fun">Shared Fun!</a></li>
@@ -22,7 +23,7 @@
     </header>
 
     <main>
-        <section class="hero-section">
+        <section id="home" class="hero-section">
             <h2>Explore, Create, and Have Fun!</h2>
             <p>Join Smaya and Nihanth as they share their awesome drawings, imaginative stories, exciting discoveries, and super fun games!</p>
             <div class="hero-images">
@@ -40,38 +41,69 @@
                 <div class="content-item">
                     <h4>My Latest Art Piece: The Sparkling Ocean!</h4>
                     <p>I painted a vibrant ocean scene with a friendly dolphin and shimmering fish. What's your favorite sea creature?</p>
-                    <img src="images/smaya_art_ocean.jpg" alt="Smaya's ocean drawing" class="content-image">
+                    <img src="https://via.placeholder.com/250x150/FFC0CB/8A2BE2?text=Smaya's+Ocean+Art" alt="Smaya's ocean drawing" class="content-image">
                     <p class="image-caption">Painted with my favorite glitter pens!</p>
                 </div>
 
                 <div class="content-item">
                     <h4>A Story I Wrote: The Little Cloud's Big Dream</h4>
-                    <p>This is a story about a tiny cloud who wanted to be the biggest, fluffiest cloud in the sky!</p>
-                    <a href="#" class="read-more-link">Read Smaya's Full Story</a>
+                    <p>This is a story about a tiny cloud who wanted to be the biggest, fluffiest cloud in the sky! Read along to see if her dream comes true.</p>
+                    <button class="play-game-button smaya-button" data-feature="story-cloud">Read Smaya's Full Story</button>
+                    <div id="story-cloud-content" class="hidden-content">
+                        <h5>The Little Cloud's Big Dream</h5>
+                        <p>Once there was a little cloud, no bigger than a kitten's sneeze. She watched the big, fluffy clouds drift by, carrying rain and sunshine to the world. "Oh," sighed the little cloud, "I wish I could be big and fluffy like them!"</p>
+                        <p>The wind heard her wish. "Little cloud," whispered the wind, "to grow big, you must travel and collect tiny water droplets." So, the little cloud bravely drifted over oceans vast and mountains tall, collecting more and more tiny droplets. She grew bigger and bigger, until she was the fluffiest cloud in the sky! And she learned that even the smallest dream can come true with a little bit of adventure.</p>
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
                     <h4>👗 Digital Dress-Up Fun!</h4>
                     <p>Help my friend Lily pick the perfect outfit for her tea party! Drag and drop clothes to see her new look!</p>
-                    <button class="play-game-button smaya-button">Play Dress-Up!</button>
+                    <button class="play-game-button smaya-button" data-feature="dress-up">Play Dress-Up!</button>
+                    <div id="dress-up-game" class="hidden-content game-area">
+                        <div class="dress-up-character"></div>
+                        <div class="dress-up-options">
+                            <div class="dress-up-item" data-type="top" data-color="pink">Pink Top</div>
+                            <div class="dress-up-item" data-type="top" data-color="yellow">Yellow Top</div>
+                            <div class="dress-up-item" data-type="bottom" data-color="blue">Blue Skirt</div>
+                            <div class="dress-up-item" data-type="bottom" data-color="green">Green Pants</div>
+                            <div class="dress-up-item" data-type="accessory" data-color="hat">Hat</div>
+                            <div class="dress-up-item" data-type="accessory" data-color="bow">Bow</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
-                    <h4>📖 Telugu Slokas & Poems</h4>
-                    <p>Listen to beautiful Telugu poems and learn some new words. Press play to hear!</p>
-                    <button class="play-audio-button smaya-button">Listen Now!</button>
+                    <h4>📖 తెలుగు శ్లోకాలు & కవితలు (Telugu Slokas & Poems)</h4>
+                    <p>అందమైన తెలుగు పద్యాలు వినండి మరియు కొన్ని కొత్త పదాలను నేర్చుకోండి! (Listen to beautiful Telugu poems and learn new words!)</p>
+                    <button class="play-audio-button smaya-button" data-feature="telugu-sloka">Play Sloka!</button>
+                     <div id="telugu-sloka-content" class="hidden-content">
+                        <p class="telugu-text">ఉదయం లేచి అమ్మానాన్నలకు నమస్కరించాలి.<br>పెద్దల పట్ల గౌరవం చూపాలి.<br>కష్టపడి చదవాలి, మంచి మార్కులు తెచ్చుకోవాలి.</p>
+                        <p class="english-translation">(Wake up in the morning and greet your parents.<br>Show respect towards elders.<br>Study hard and get good marks.)</p>
                     </div>
+                </div>
 
                 <div class="content-item interactive-item">
                     <h4>💄 Fun Makeup & Art Ideas</h4>
                     <p>Explore playful art ideas inspired by colors and patterns! Create your own sparkling designs.</p>
-                    <button class="explore-art-button smaya-button">Get Inspired!</button>
+                    <button class="explore-art-button smaya-button" data-feature="art-ideas">Get Inspired!</button>
+                    <div id="art-ideas-content" class="hidden-content">
+                        <h5>Sparkle Art Inspiration!</h5>
+                        <p>Imagine your favorite animal covered in glitter! How about a rainbow zebra? Or a sparkly unicorn with a golden horn?</p>
+                        <p><strong>Activity:</strong> Draw a magic wand. What kind of sparkles does it make? Pink, purple, or even rainbow ones?</p>
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
                     <h4>🎶 K-Pop Rhythm Fun!</h4>
                     <p>Tap along to the beat of some cheerful K-Pop tunes. Can you keep up with the rhythm?</p>
-                    <button class="play-game-button smaya-button">Tap the Beat!</button>
+                    <button class="play-game-button smaya-button" data-feature="kpop-rhythm">Tap the Beat!</button>
+                    <div id="kpop-rhythm-content" class="hidden-content game-area">
+                        <p>Ready to tap? Listen to this clip and tap the beat!</p>
+                        <iframe width="280" height="157" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=EXAMPLE_SAFE_KPOP_INSTRUMENTAL&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <p>Sorry, that was Rick Astley! Here's an actual royalty-free K-Pop instrumental:</p>
+                        <iframe width="280" height="157" src="https://www.youtube.com/embed/t0k9r2u7c8o?controls=0" title="Royalty Free Kpop Instrumental" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
             <button class="view-all-button smaya-button">See More of Smaya's Fun!</button>
@@ -85,38 +117,72 @@
                 <div class="content-item">
                     <h4>My Coolest Creation: The Robo-Dino Friend!</h4>
                     <p>I built a robot dinosaur that can stomp, roar, and even fetch small toys! It's super strong!</p>
-                    <img src="images/nihanth_robot_dino.jpg" alt="Nihanth's robot dinosaur" class="content-image">
+                    <img src="https://via.placeholder.com/250x150/87CEFA/1E90FF?text=Nihanth's+Robot+Dino" alt="Nihanth's robot dinosaur" class="content-image">
                     <p class="image-caption">It lights up blue!</p>
                 </div>
 
                 <div class="content-item">
                     <h4>Amazing Science Fact: Why Is the Sky Blue?</h4>
                     <p>Did you know the sky is blue because of tiny particles that scatter sunlight? Learn more cool facts!</p>
-                    <a href="#" class="read-more-link">Explore More Science Fun</a>
+                    <button class="read-more-link nihanth-button" data-feature="sky-fact">Explore More Science Fun</button>
+                    <div id="sky-fact-content" class="hidden-content">
+                        <h5>Why Is the Sky Blue?</h5>
+                        <p>The sky is blue because of something called "Rayleigh scattering!" When sunlight comes to Earth, it hits tiny air particles. Blue light scatters more than other colors, so we see it all over the sky!</p>
+                        <p>At sunset, the sun's light travels through more atmosphere, scattering out most of the blue light, leaving behind red and orange colors!</p>
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
                     <h4>🚗 Super Speed Race!</h4>
                     <p>Get ready, set, GO! Race your car around the track and try to beat the clock!</p>
-                    <button class="play-game-button nihanth-button">Start Racing!</button>
+                    <button class="play-game-button nihanth-button" data-feature="racing-game">Start Racing!</button>
+                    <div id="racing-game-area" class="hidden-content game-area">
+                        <div class="race-track">
+                            <div class="race-car" id="player-car"></div>
+                            <div class="race-car" id="ai-car"></div>
+                        </div>
+                        <button id="race-start-button">GO!</button>
+                        <p id="race-status">Click GO to start!</p>
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
                     <h4>🤖 Build Your Own Robot!</h4>
                     <p>Drag and drop parts to create your ultimate robot companion. What will yours do?</p>
-                    <button class="play-game-button nihanth-button">Start Building!</button>
+                    <button class="play-game-button nihanth-button" data-feature="build-robot">Start Building!</button>
+                    <div id="build-robot-game" class="hidden-content game-area">
+                        <div class="robot-display"></div>
+                        <div class="robot-parts">
+                            <div class="robot-part" data-part="head" data-color="red">Head 1</div>
+                            <div class="robot-part" data-part="body" data-color="blue">Body 1</div>
+                            <div class="robot-part" data-part="legs" data-color="green">Legs 1</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
                     <h4>⌚ Cool Watch Collection!</h4>
                     <p>Explore different kinds of watches and learn what they can do!</p>
-                    <button class="view-collection-button nihanth-button">View Watches!</button>
+                    <button class="view-collection-button nihanth-button" data-feature="watch-collection">View Watches!</button>
+                    <div id="watch-collection-content" class="hidden-content">
+                        <h5>Awesome Watches!</h5>
+                        <p><strong>Sport Watch:</strong> Great for running and swimming, it counts your steps!</p>
+                        <p><strong>Digital Watch:</strong> Shows numbers instead of hands, super easy to read!</p>
+                        <p><strong>Smart Watch:</strong> Can tell time, play music, and even make calls!</p>
+                        <img src="https://via.placeholder.com/100x100?text=Digital+Watch" alt="Digital Watch" class="content-image">
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
                     <h4>⚔️ Pokemon Matching Game!</h4>
                     <p>Find the matching pairs of your favorite Pokémon characters in this fun memory challenge!</p>
-                    <button class="play-game-button nihanth-button">Play Pokémon!</button>
+                    <button class="play-game-button nihanth-button" data-feature="pokemon-match">Play Pokémon!</button>
+                    <div id="pokemon-matching-game" class="hidden-content game-area">
+                        <p>Click cards to find matches!</p>
+                        <div class="memory-grid"></div>
+                        <p id="match-status"></p>
+                        <button id="reset-match-game" class="nihanth-button">Play Again</button>
+                    </div>
                 </div>
             </div>
             <button class="view-all-button nihanth-button">Discover Nihanth's Adventures!</button>
@@ -131,32 +197,32 @@
                     <h4>🔠 Alphabet Explorer!</h4>
                     <p>Click on each letter to hear its sound and see a word that starts with it!</p>
                     <div class="alphabet-grid" id="alphabet-explorer-grid">
-                        <div class="letter-card" data-letter="a" data-word="Apple"><span>A</span><img src="images/alphabet/apple.png" alt="Apple" class="letter-image"></div>
-                        <div class="letter-card" data-letter="b" data-word="Ball"><span>B</span><img src="images/alphabet/ball.png" alt="Ball" class="letter-image"></div>
-                        <div class="letter-card" data-letter="c" data-word="Cat"><span>C</span><img src="images/alphabet/cat.png" alt="Cat" class="letter-image"></div>
-                        <div class="letter-card" data-letter="d" data-word="Dog"><span>D</span><img src="images/alphabet/dog.png" alt="Dog" class="letter-image"></div>
-                        <div class="letter-card" data-letter="e" data-word="Elephant"><span>E</span><img src="images/alphabet/elephant.png" alt="Elephant" class="letter-image"></div>
-                        <div class="letter-card" data-letter="f" data-word="Fish"><span>F</span><img src="images/alphabet/fish.png" alt="Fish" class="letter-image"></div>
-                        <div class="letter-card" data-letter="g" data-word="Grape"><span>G</span><img src="images/alphabet/grape.png" alt="Grape" class="letter-image"></div>
-                        <div class="letter-card" data-letter="h" data-word="Hat"><span>H</span><img src="images/alphabet/hat.png" alt="Hat" class="letter-image"></div>
-                        <div class="letter-card" data-letter="i" data-word="Ice Cream"><span>I</span><img src="images/alphabet/icecream.png" alt="Ice Cream" class="letter-image"></div>
-                        <div class="letter-card" data-letter="j" data-word="Jellyfish"><span>J</span><img src="images/alphabet/jellyfish.png" alt="Jellyfish" class="letter-image"></div>
-                        <div class="letter-card" data-letter="k" data-word="Kite"><span>K</span><img src="images/alphabet/kite.png" alt="Kite" class="letter-image"></div>
-                        <div class="letter-card" data-letter="l" data-word="Lion"><span>L</span><img src="images/alphabet/lion.png" alt="Lion" class="letter-image"></div>
-                        <div class="letter-card" data-letter="m" data-word="Monkey"><span>M</span><img src="images/alphabet/monkey.png" alt="Monkey" class="letter-image"></div>
-                        <div class="letter-card" data-letter="n" data-word="Nest"><span>N</span><img src="images/alphabet/nest.png" alt="Nest" class="letter-image"></div>
-                        <div class="letter-card" data-letter="o" data-word="Orange"><span>O</span><img src="images/alphabet/orange.png" alt="Orange" class="letter-image"></div>
-                        <div class="letter-card" data-letter="p" data-word="Penguin"><span>P</span><img src="images/alphabet/penguin.png" alt="Penguin" class="letter-image"></div>
-                        <div class="letter-card" data-letter="q" data-word="Queen"><span>Q</span><img src="images/alphabet/queen.png" alt="Queen" class="letter-image"></div>
-                        <div class="letter-card" data-letter="r" data-word="Rainbow"><span>R</span><img src="images/alphabet/rainbow.png" alt="Rainbow" class="letter-image"></div>
-                        <div class="letter-card" data-letter="s" data-word="Star"><span>S</span><img src="images/alphabet/star.png" alt="Star" class="letter-image"></div>
-                        <div class="letter-card" data-letter="t" data-word="Tiger"><span>T</span><img src="images/alphabet/tiger.png" alt="Tiger" class="letter-image"></div>
-                        <div class="letter-card" data-letter="u" data-word="Umbrella"><span>U</span><img src="images/alphabet/umbrella.png" alt="Umbrella" class="letter-image"></div>
-                        <div class="letter-card" data-letter="v" data-word="Violin"><span>V</span><img src="images/alphabet/violin.png" alt="Violin" class="letter-image"></div>
-                        <div class="letter-card" data-letter="w" data-word="Watermelon"><span>W</span><img src="images/alphabet/watermelon.png" alt="Watermelon" class="letter-image"></div>
-                        <div class="letter-card" data-letter="x" data-word="X-ray"><span>X</span><img src="images/alphabet/xray.png" alt="X-ray" class="letter-image"></div>
-                        <div class="letter-card" data-letter="y" data-word="Yoyo"><span>Y</span><img src="images/alphabet/yoyo.png" alt="Yoyo" class="letter-image"></div>
-                        <div class="letter-card" data-letter="z" data-word="Zebra"><span>Z</span><img src="images/alphabet/zebra.png" alt="Zebra" class="letter-image"></div>
+                        <div class="letter-card" data-letter="a" data-word="Apple"><span>A</span><img src="https://via.placeholder.com/60x60?text=A" alt="Apple" class="letter-image"></div>
+                        <div class="letter-card" data-letter="b" data-word="Ball"><span>B</span><img src="https://via.placeholder.com/60x60?text=B" alt="Ball" class="letter-image"></div>
+                        <div class="letter-card" data-letter="c" data-word="Cat"><span>C</span><img src="https://via.placeholder.com/60x60?text=C" alt="Cat" class="letter-image"></div>
+                        <div class="letter-card" data-letter="d" data-word="Dog"><span>D</span><img src="https://via.placeholder.com/60x60?text=D" alt="Dog" class="letter-image"></div>
+                        <div class="letter-card" data-letter="e" data-word="Elephant"><span>E</span><img src="https://via.placeholder.com/60x60?text=E" alt="Elephant" class="letter-image"></div>
+                        <div class="letter-card" data-letter="f" data-word="Fish"><span>F</span><img src="https://via.placeholder.com/60x60?text=F" alt="Fish" class="letter-image"></div>
+                        <div class="letter-card" data-letter="g" data-word="Grape"><span>G</span><img src="https://via.placeholder.com/60x60?text=G" alt="Grape" class="letter-image"></div>
+                        <div class="letter-card" data-letter="h" data-word="Hat"><span>H</span><img src="https://via.placeholder.com/60x60?text=H" alt="Hat" class="letter-image"></div>
+                        <div class="letter-card" data-letter="i" data-word="Ice Cream"><span>I</span><img src="https://via.placeholder.com/60x60?text=I" alt="Ice Cream" class="letter-image"></div>
+                        <div class="letter-card" data-letter="j" data-word="Jellyfish"><span>J</span><img src="https://via.placeholder.com/60x60?text=J" alt="Jellyfish" class="letter-image"></div>
+                        <div class="letter-card" data-letter="k" data-word="Kite"><span>K</span><img src="https://via.placeholder.com/60x60?text=K" alt="Kite" class="letter-image"></div>
+                        <div class="letter-card" data-letter="l" data-word="Lion"><span>L</span><img src="https://via.placeholder.com/60x60?text=L" alt="Lion" class="letter-image"></div>
+                        <div class="letter-card" data-letter="m" data-word="Monkey"><span>M</span><img src="https://via.placeholder.com/60x60?text=M" alt="Monkey" class="letter-image"></div>
+                        <div class="letter-card" data-letter="n" data-word="Nest"><span>N</span><img src="https://via.placeholder.com/60x60?text=N" alt="Nest" class="letter-image"></div>
+                        <div class="letter-card" data-letter="o" data-word="Orange"><span>O</span><img src="https://via.placeholder.com/60x60?text=O" alt="Orange" class="letter-image"></div>
+                        <div class="letter-card" data-letter="p" data-word="Penguin"><span>P</span><img src="https://via.placeholder.com/60x60?text=P" alt="Penguin" class="letter-image"></div>
+                        <div class="letter-card" data-letter="q" data-word="Queen"><span>Q</span><img src="https://via.placeholder.com/60x60?text=Q" alt="Queen" class="letter-image"></div>
+                        <div class="letter-card" data-letter="r" data-word="Rainbow"><span>R</span><img src="https://via.placeholder.com/60x60?text=R" alt="Rainbow" class="letter-image"></div>
+                        <div class="letter-card" data-letter="s" data-word="Star"><span>S</span><img src="https://via.placeholder.com/60x60?text=S" alt="Star" class="letter-image"></div>
+                        <div class="letter-card" data-letter="t" data-word="Tiger"><span>T</span><img src="https://via.placeholder.com/60x60?text=T" alt="Tiger" class="letter-image"></div>
+                        <div class="letter-card" data-letter="u" data-word="Umbrella"><span>U</span><img src="https://via.placeholder.com/60x60?text=U" alt="Umbrella" class="letter-image"></div>
+                        <div class="letter-card" data-letter="v" data-word="Violin"><span>V</span><img src="https://via.placeholder.com/60x60?text=V" alt="Violin" class="letter-image"></div>
+                        <div class="letter-card" data-letter="w" data-word="Watermelon"><span>W</span><img src="https://via.placeholder.com/60x60?text=W" alt="Watermelon" class="letter-image"></div>
+                        <div class="letter-card" data-letter="x" data-word="X-ray"><span>X</span><img src="https://via.placeholder.com/60x60?text=X" alt="X-ray" class="letter-image"></div>
+                        <div class="letter-card" data-letter="y" data-word="Yoyo"><span>Y</span><img src="https://via.placeholder.com/60x60?text=Y" alt="Yoyo" class="letter-image"></div>
+                        <div class="letter-card" data-letter="z" data-word="Zebra"><span>Z</span><img src="https://via.placeholder.com/60x60?text=Z" alt="Zebra" class="letter-image"></div>
                     </div>
                     <p class="alphabet-message">Click a letter to begin!</p>
                 </div>
@@ -164,31 +230,85 @@
                 <div class="content-item interactive-item">
                     <h4>🍎 Eat the Rainbow!</h4>
                     <p>Drag colorful fruits and veggies onto your plate to make a super healthy meal!</p>
-                    <button class="play-game-button">Start Eating!</button>
+                    <button class="play-game-button" data-feature="eat-rainbow">Start Eating!</button>
+                    <div id="eat-rainbow-game" class="hidden-content game-area">
+                        <div class="plate-area"></div>
+                        <div class="food-options">
+                            <div class="food-item" data-food="red" style="background-color: red;">Apple</div>
+                            <div class="food-item" data-food="orange" style="background-color: orange;">Orange</div>
+                            <div class="food-item" data-food="yellow" style="background-color: yellow;">Banana</div>
+                            <div class="food-item" data-food="green" style="background-color: green;">Broccoli</div>
+                            <div class="food-item" data-food="blue" style="background-color: blue;">Blueberry</div>
+                            <div class="food-item" data-food="purple" style="background-color: purple;">Grape</div>
+                        </div>
+                        <button id="check-rainbow">Check My Rainbow!</button>
+                        <p id="rainbow-status"></p>
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
                     <h4>🗓️ My Daily Routine Helper</h4>
                     <p>Drag chores and activities to your schedule. Finish them to earn stars!</p>
-                    <button class="play-game-button">Build My Routine!</button>
+                    <button class="play-game-button" data-feature="daily-routine">Build My Routine!</button>
+                    <div id="daily-routine-game" class="hidden-content game-area">
+                        <div class="routine-list">
+                            <div class="routine-item" data-task="brush"><i class="fas fa-toothbrush"></i> Brush Teeth</div>
+                            <div class="routine-item" data-task="eat"><i class="fas fa-utensils"></i> Eat Breakfast</div>
+                            <div class="routine-item" data-task="read"><i class="fas fa-book"></i> Read a Book</div>
+                            <div class="routine-item" data-task="play"><i class="fas fa-gamepad"></i> Play Time</div>
+                            <div class="routine-item" data-task="bed"><i class="fas fa-bed"></i> Go to Bed</div>
+                        </div>
+                        <div class="routine-dropzone">Drag tasks here!</div>
+                        <button id="complete-routine">Completed Day!</button>
+                        <p id="routine-status"></p>
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
                     <h4>😊 Feeling Friends!</h4>
                     <p>Explore different emotions with our friendly characters. How are you feeling today?</p>
-                    <button class="play-game-button">Meet the Feelings!</button>
+                    <button class="play-game-button" data-feature="feeling-friends">Meet the Feelings!</button>
+                    <div id="feeling-friends-game" class="hidden-content game-area">
+                        <div class="emotion-display">
+                            <span id="current-emotion-icon"></span>
+                            <p id="current-emotion-text"></p>
+                        </div>
+                        <div class="emotion-buttons">
+                            <button data-emotion="happy"><i class="fas fa-smile"></i> Happy</button>
+                            <button data-emotion="sad"><i class="fas fa-frown"></i> Sad</button>
+                            <button data-emotion="angry"><i class="fas fa-angry"></i> Angry</button>
+                            <button data-emotion="surprised"><i class="fas fa-surprise"></i> Surprised</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
                     <h4>☀️ What to Wear Today?</h4>
                     <p>Check the weather and pick the perfect outfit for your day!</p>
-                    <button class="play-game-button">Dress for Weather!</button>
+                    <button class="play-game-button" data-feature="weather-outfit">Dress for Weather!</button>
+                    <div id="weather-outfit-game" class="hidden-content game-area">
+                        <div class="weather-selector">
+                            <button data-weather="sunny"><i class="fas fa-sun"></i> Sunny</button>
+                            <button data-weather="rainy"><i class="fas fa-cloud-rain"></i> Rainy</button>
+                            <button data-weather="cold"><i class="fas fa-snowflake"></i> Cold</button>
+                        </div>
+                        <div class="outfit-display">
+                            <p id="outfit-suggestion"></p>
+                            <div class="outfit-character"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-item interactive-item">
                     <h4>➕ Math Challenge!</h4>
                     <p>Solve fun math puzzles with addition, subtraction, and more!</p>
-                    <button class="play-game-button">Start Math Fun!</button>
+                    <button class="play-game-button" data-feature="math-challenge">Start Math Fun!</button>
+                    <div id="math-challenge-game" class="hidden-content game-area">
+                        <p id="math-question"></p>
+                        <input type="number" id="math-answer" placeholder="Your Answer">
+                        <button id="check-math-answer">Check!</button>
+                        <p id="math-status"></p>
+                    </div>
                 </div>
             </div>
         </section>

@@ -20,6 +20,8 @@
     --text-light: #FFF;
     --primary-button-color: #8A2BE2; /* A cheerful purple */
     --primary-button-hover: #6A0DAD; /* Darker purple on hover */
+    --success-color: #4CAF50; /* Green */
+    --error-color: #F44336; /* Red */
 }
 
 body {
@@ -35,6 +37,16 @@ h1, h2, h3, h4 {
     font-family: 'Fredoka One', cursive;
     color: var(--text-dark);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Soft shadow for headings */
+}
+
+a {
+    color: var(--primary-button-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-button-hover);
+    text-decoration: underline;
 }
 
 /* Header Styling */
@@ -141,7 +153,8 @@ main {
 
 /* Buttons */
 .explore-button, .view-all-button, .play-game-button, .play-audio-button,
-.explore-art-button, .view-collection-button { /* Added new button classes */
+.explore-art-button, .view-collection-button, #race-start-button,
+#check-rainbow, #complete-routine, #check-math-answer, #reset-match-game { /* Added new button classes */
     background-color: var(--primary-button-color);
     color: var(--text-light);
     border: none;
@@ -158,7 +171,8 @@ main {
 }
 
 .explore-button:hover, .view-all-button:hover, .play-game-button:hover, .play-audio-button:hover,
-.explore-art-button:hover, .view-collection-button:hover {
+.explore-art-button:hover, .view-collection-button:hover, #race-start-button:hover,
+#check-rainbow:hover, #complete-routine:hover, #check-math-answer:hover, #reset-match-game:hover {
     background-color: var(--primary-button-hover);
     transform: translateY(-3px);
 }
@@ -349,6 +363,380 @@ main {
     font-weight: bold;
     color: var(--shared-text);
     margin-top: 15px;
+    min-height: 1.5em; /* Prevent layout shift when text updates */
+}
+
+/* Hidden content areas for games/details */
+.hidden-content {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.game-area {
+    min-height: 200px; /* Ensure game areas have some space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Specific game styles */
+
+/* Dress-Up Game */
+.dress-up-character {
+    width: 120px;
+    height: 180px;
+    background-color: #FFE0BD; /* Skin tone */
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+.dress-up-character::before { /* Head */
+    content: '';
+    position: absolute;
+    top: -30px; left: 30px;
+    width: 60px; height: 60px;
+    background-color: #FFE0BD;
+    border: 2px solid #333;
+    border-radius: 50%;
+}
+.dress-up-character::after { /* Neck */
+    content: '';
+    position: absolute;
+    top: 28px; left: 55px;
+    width: 10px; height: 10px;
+    background-color: #FFE0BD;
+    border: 1px solid #333;
+}
+.dress-up-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+.dress-up-item {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: grab;
+    transition: transform 0.1s ease;
+    font-size: 0.9em;
+    background-color: #e6e6e6;
+}
+.dress-up-item[data-color="pink"] { background-color: #FFC0CB; }
+.dress-up-item[data-color="yellow"] { background-color: #FFFF99; }
+.dress-up-item[data-color="blue"] { background-color: #ADD8E6; }
+.dress-up-item[data-color="green"] { background-color: #90EE90; }
+.dress-up-item[data-color="hat"] { background-color: #DDA0DD; }
+.dress-up-item[data-color="bow"] { background-color: #FFB6C1; }
+
+/* Racing Game */
+.race-track {
+    width: 100%;
+    height: 80px;
+    background-color: #555;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+}
+.race-car {
+    width: 30px;
+    height: 20px;
+    background-color: var(--nihanth-blue);
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    transition: left linear; /* Will be set by JS */
+}
+#ai-car {
+    background-color: var(--smaya-pink); /* Opponent car color */
+}
+#race-status {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Build Robot Game */
+.robot-display {
+    width: 150px;
+    height: 200px;
+    border: 2px solid #333;
+    background-color: #eee;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.robot-parts {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.robot-part {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #555;
+    background-color: #ccc;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+}
+.robot-part[data-color="red"] { background-color: #F44336; }
+.robot-part[data-color="blue"] { background-color: #2196F3; }
+.robot-part[data-color="green"] { background-color: #4CAF50; }
+
+/* Pokémon Matching Game */
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4x4 grid */
+    gap: 10px;
+    width: 300px; /* Fixed width for consistency */
+    height: 300px; /* Fixed height */
+    margin: 20px auto;
+    perspective: 1000px; /* For 3D flip effect */
+}
+.memory-card {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    display: flex; /* For centering content */
+    align-items: center;
+    justify-content: center;
+    font-size: 2em; /* For icon */
+    color: transparent; /* Hide icon initially */
+    border: 2px solid #aaa;
+}
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+.memory-card.match {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    cursor: default;
+}
+.memory-card.matched-visible { /* To show matched cards */
+    color: white;
+}
+.memory-card.flipped-visible { /* To show flipped cards */
+    color: var(--text-dark);
+}
+.memory-card .card-front, .memory-card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+.memory-card .card-front {
+    background-color: var(--nihanth-blue); /* Card back color */
+    color: white;
+    font-size: 1.5em;
+    transform: rotateY(0deg);
+}
+.memory-card .card-back {
+    background-color: #eee; /* Card front color */
+    color: var(--text-dark);
+    transform: rotateY(180deg);
+}
+.memory-card.flip .card-front { transform: rotateY(180deg); }
+.memory-card.flip .card-back { transform: rotateY(360deg); }
+
+
+/* Eat the Rainbow Game */
+.plate-area {
+    width: 200px;
+    height: 200px;
+    border: 3px dashed #ccc;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    overflow: hidden;
+}
+.food-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+.food-item {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    cursor: grab;
+}
+.plate-area .food-item {
+    width: 40px; /* Smaller when on plate */
+    height: 40px;
+    cursor: default;
+}
+#rainbow-status {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Daily Routine Helper */
+.routine-list, .routine-dropzone {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 150px;
+    width: 80%;
+    max-width: 400px;
+    margin: 10px auto;
+    background-color: #f9f9f9;
+}
+.routine-list {
+    background-color: #e6e6e6;
+}
+.routine-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.routine-dropzone {
+    border-style: dashed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+}
+.routine-item.completed {
+    background-color: var(--success-color);
+    color: white;
+    text-decoration: line-through;
+    cursor: default;
+}
+#routine-status {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Feeling Friends */
+.emotion-display {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+#current-emotion-icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+#current-emotion-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--shared-text);
+}
+.emotion-buttons button {
+    background-color: var(--shared-border);
+    color: white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1em;
+}
+.emotion-buttons button i {
+    margin-right: 5px;
+}
+
+/* Weather Outfit */
+.weather-selector button {
+    background-color: #ADD8E6;
+    color: #333;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1em;
+}
+.outfit-display {
+    margin-top: 20px;
+}
+.outfit-character {
+    width: 100px;
+    height: 150px;
+    background-color: #FFE0BD; /* Skin tone */
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin: 15px auto;
+    position: relative;
+    overflow: hidden;
+}
+.outfit-character::before { /* Head */
+    content: '';
+    position: absolute;
+    top: -20px; left: 20px;
+    width: 60px; height: 60px;
+    background-color: #FFE0BD;
+    border: 2px solid #333;
+    border-radius: 50%;
+}
+#outfit-suggestion {
+    font-weight: bold;
+    color: var(--shared-text);
+}
+
+
+/* Math Challenge */
+#math-question {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+#math-answer {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2em;
+    width: 100px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+#math-status {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.status-correct {
+    color: var(--success-color);
+}
+.status-wrong {
+    color: var(--error-color);
 }
 
 
@@ -414,6 +802,10 @@ footer {
     .content-grid {
         grid-template-columns: 1fr; /* Single column on small screens */
     }
+
+    .game-area {
+        min-height: 150px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -422,18 +814,28 @@ footer {
     }
 
     .explore-button, .view-all-button, .play-game-button, .play-audio-button,
-    .explore-art-button, .view-collection-button {
-        padding: 12px 25px;
-        font-size: 1rem;
+    .explore-art-button, .view-collection-button, #race-start-button,
+    #check-rainbow, #complete-routine, #check-math-answer, #reset-match-game {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        margin: 5px;
     }
     .alphabet-grid {
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 8px;
     }
     .letter-card span {
-        font-size: 2.5em;
+        font-size: 2em;
     }
     .letter-card .letter-image {
-        max-width: 50px;
+        max-width: 40px;
+    }
+    .memory-grid {
+        width: 250px;
+        height: 250px;
+        gap: 8px;
+    }
+    .memory-card .card-front, .memory-card .card-back {
+        font-size: 1.2em;
     }
 }
