@@ -14,6 +14,8 @@
     --neutral-bg: #F0F8FF; /* Alice Blue */
     --text-dark: #333;
     --text-light: #FFF;
+    --primary-button-color: #8A2BE2; /* A cheerful purple */
+    --primary-button-hover: #6A0DAD; /* Darker purple on hover */
 }
 
 body {
@@ -25,7 +27,7 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 { /* Added h4 */
     font-family: 'Fredoka One', cursive;
     color: var(--text-dark);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Soft shadow for headings */
@@ -135,7 +137,7 @@ main {
 
 /* Buttons */
 .explore-button, .view-all-button {
-    background-color: #8A2BE2; /* A cheerful purple */
+    background-color: var(--primary-button-color);
     color: var(--text-light);
     border: none;
     padding: 15px 30px;
@@ -145,10 +147,12 @@ main {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-decoration: none; /* In case it's an <a> tag styled as a button */
+    display: inline-block; /* Allows padding and margin to work correctly */
 }
 
 .explore-button:hover, .view-all-button:hover {
-    background-color: #6A0DAD; /* Darker purple on hover */
+    background-color: var(--primary-button-hover);
     transform: translateY(-3px);
 }
 
@@ -180,13 +184,55 @@ main {
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Inner shadow */
+    text-align: center; /* Center content within the item */
 }
 
 .content-item h4 {
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 10px;
+    color: #4CAF50; /* A friendly green for content titles */
 }
+
+/* NEW: Style for images inside content items */
+.content-item .content-image {
+    max-width: 80%; /* Don't let it be too wide */
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto;
+    display: block; /* Centers the image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.content-item .content-image:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+}
+
+.image-caption {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: -10px; /* Pull it closer to the image */
+    margin-bottom: 15px;
+}
+
+/* Style for "Read More" links */
+.read-more-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary-button-color);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px dotted var(--primary-button-color);
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.read-more-link:hover {
+    color: var(--primary-button-hover);
+    border-color: var(--primary-button-hover);
+}
+
 
 /* Smaya's Theme */
 .smaya-theme {
@@ -204,7 +250,6 @@ main {
 }
 
 .smaya-button:hover {
-    background-color: darken(var(--smaya-pink), 10%); /* This won't work directly in CSS, but for conceptual idea */
     background-color: #DC143C; /* A darker pink for hover */
 }
 
