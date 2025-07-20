@@ -11,21 +11,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Add a simple hover class for fun - pure CSS is better for most hover effects,
-    // but this demonstrates JS interaction for more complex needs later.
-    const allButtons = document.querySelectorAll('button');
-    allButtons.forEach(button => {
-        button.addEventListener('mouseover', () => {
-            button.style.backgroundColor = 'var(--primary-button-hover)'; // Direct style for demo
+    // Alphabet Explorer Functionality
+    const alphabetGrid = document.getElementById('alphabet-explorer-grid');
+    const alphabetMessage = document.querySelector('.alphabet-message');
+
+    if (alphabetGrid) {
+        alphabetGrid.addEventListener('click', (event) => {
+            const letterCard = event.target.closest('.letter-card');
+            if (letterCard) {
+                const letter = letterCard.dataset.letter; // Get the letter from data-letter attribute
+                const word = letterCard.dataset.word;     // Get the word from data-word attribute
+
+                // Play the letter sound
+                // Ensure you have audio files like images/audio/a.mp3, images/audio/b.mp3 etc.
+                const audio = new Audio(`images/audio/${letter}.mp3`);
+                audio.play().catch(e => console.error("Error playing audio:", e));
+
+                // Update the message
+                if (alphabetMessage) {
+                    alphabetMessage.textContent = `${letter.toUpperCase()} is for ${word}!`;
+                }
+            }
         });
-        button.addEventListener('mouseout', () => {
-            // Reset to original color (or what CSS defines)
-            button.style.backgroundColor = ''; // Remove inline style to let CSS take over
+    }
+
+    // Generic Play Button Click Listener (for placeholder buttons)
+    // You'll replace these alerts with actual game/activity logic later
+    document.querySelectorAll('.play-game-button, .play-audio-button, .explore-art-button, .view-collection-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const buttonText = event.target.textContent;
+            alert(`You clicked: "${buttonText}"! This feature is coming soon!`);
+            // Here's where you'd link to specific functions for each game/activity
+            // e.g., if (buttonText === 'Play Dress-Up!') { startDressUpGame(); }
         });
     });
 
-    // Optional: A subtle fade-in for sections as they come into view (more advanced)
-    // This requires Intersection Observer API, but for now, just an idea.
+    // Handle "Read More" links
+    document.querySelectorAll('.read-more-link').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault(); // Stop the link from trying to navigate
+            alert('Story/Fact detail coming soon! For now, enjoy the summary.');
+            // In the future, this could open a modal with the full story or navigate to a story page.
+        });
+    });
+
+
+    // Optional: A subtle fade-in for sections as they come into view
     const sections = document.querySelectorAll('section');
     const observerOptions = {
         root: null, // viewport
@@ -49,5 +80,4 @@ document.addEventListener('DOMContentLoaded', () => {
         section.style.transform = 'translateY(20px)'; // Start slightly below
         sectionObserver.observe(section);
     });
-
 });
