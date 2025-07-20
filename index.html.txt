@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smaya-Nihan Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Smaya-Nihan Play Site</h1>
+    <p>This is a page for Smaya and Nihan.</p>
+    <a href="https://github.com" class="button">Visit GitHub</a>
+</body>
+</html>
