@@ -1,86 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smaya & Nihanth Reddy</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Comic Sans MS', sans-serif;
-      background: linear-gradient(45deg, #ffecd2, #fcb69f);
-      color: #333;
-      text-align: center;
-    }
-    header {
-      background: linear-gradient(to right, #ff7e5f, #feb47b);
-      padding: 40px 20px;
-      color: white;
-      font-size: 2em;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    }
-    .content {
-      padding: 20px;
-    }
-    .card {
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      margin: 15px auto;
-      width: 80%;
-      max-width: 400px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.05);
-    }
-    h2 {
-      color: #ff7e5f;
-    }
-    footer {
-      background: #ff7e5f;
-      color: white;
-      padding: 10px;
-      margin-top: 30px;
-    }
-    .button {
-      background: #feb47b;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1em;
-      margin-top: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .button:hover {
-      background: #ff7e5f;
-      color: white;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smaya & Nihanth's Colorful World!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    Welcome to Smaya & Nihanth Reddy's World!
-  </header>
+    <header class="site-header">
+        <h1>Welcome to Our Amazing Adventure!</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#smaya-section">Smaya's Corner</a></li>
+                <li><a href="#nihanth-section">Nihanth's Zone</a></li>
+                <li><a href="#gallery-section">Fun Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="content">
-    <div class="card">
-      <h2>About Smaya</h2>
-      <p>Smaya loves drawing, singing, and exploring new things!</p>
-      <button class="button">Know More</button>
-    </div>
+    <main>
+        <section class="hero-section">
+            <h2>Explore, Create, and Have Fun!</h2>
+            <p>Join Smaya and Nihanth as they share their awesome drawings, stories, and exciting discoveries.</p>
+            <div class="hero-images">
+                <img src="images" alt="Smaya's Picture" class="smaya-pic">
+                <img src="images" alt="Nihanth's Picture" class="nihanth-pic">
+            </div>
+            <button class="explore-button">Start Exploring!</button>
+        </section>
 
-    <div class="card">
-      <h2>About Nihanth</h2>
-      <p>Nihanth enjoys playing football, reading, and adventures!</p>
-      <button class="button">Know More</button>
-    </div>
-  </div>
+        <section id="smaya-section" class="child-section smaya-theme">
+            <h3>🌸 Smaya's Creative Corner 🌸</h3>
+            <p>Here you'll find Smaya's beautiful artwork, imaginative stories, and super fun projects!</p>
+            <div class="content-item">
+                <h4>My Latest Drawing: The Magical Unicorn!</h4>
+                <p>I drew a unicorn that can fly over rainbows!</p>
+                </div>
+            <button class="view-all-button smaya-button">See More of Smaya's Fun!</button>
+        </section>
 
-  <footer>
-    Made with ❤️ for Smaya & Nihanth
-  </footer>
+        <section id="nihanth-section" class="child-section nihanth-theme">
+            <h3>🚀 Nihanth's Explorer Zone 🚀</h3>
+            <p>Dive into Nihanth's world of cool robots, amazing space adventures, and exciting experiments!</p>
+            <div class="content-item">
+                <h4>My New Robot Design: Robo-Helper!</h4>
+                <p>This robot can help you clean your room and play games!</p>
+                </div>
+            <button class="view-all-button nihanth-button">Discover Nihanth's Adventures!</button>
+        </section>
+
+        <section id="gallery-section" class="gallery-section">
+            <h3>🌈 Our Fun Gallery 🌟</h3>
+            <p>Check out some of our favorite moments and creations together!</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="images" alt="Gallery Image 1"></div>
+                <div class="gallery-item"><img src="images" alt="Gallery Image 2"></div>
+                <div class="gallery-item"><img src="images" alt="Gallery Image 3"></div>
+            </div>
+            <button class="explore-button">View Full Gallery!</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Smaya & Nihanth Reddy. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
